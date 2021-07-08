@@ -1,8 +1,8 @@
 #!/bin/bash
 
 declare -a commands=(
-  node_modules
-  brew_packages
+  nm
+  bp
   os
 )
 
@@ -10,12 +10,14 @@ case $1 in
 
   ${commands[0]})
     echo "/usr/local/lib/node_modules"
+    echo "nm = node_modules"
     echo
     ls /usr/local/lib/node_modules
     ;;
 
   ${commands[1]})
     echo "/usr/local/Cellar"
+    echo "bp = brew packages"
     echo
     ls /usr/local/Cellar
     ;;

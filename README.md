@@ -1,7 +1,7 @@
 # STATIC
 
 ````
-cp ./bin/get /bin/bash/get
+cp ./bin/get /usr/local/bin
 ````
 
 ## Maintainers
