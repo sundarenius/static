@@ -4,15 +4,25 @@ declare -a commands=(
   nm
   bp
   os
+  ip
 )
 
 case $1 in
 
   ${commands[0]})
-    echo "/usr/local/lib/node_modules"
-    echo "nm = node_modules"
-    echo
-    ls /usr/local/lib/node_modules
+    if [ -d "$HOME/n/lib/node_modules" ];
+      then
+        echo "~/n/lib/node_modules (if installed with curl n)"
+        echo "nm = node_modules"
+        echo
+        ls /home/sundstrom/n/lib/node_modules
+    elif [ -d "/usr/local/lib/node_modules" ];
+      then
+        echo "/usr/local/lib/node_modules"
+        echo "nm = node_modules"
+        echo
+        ls /usr/local/lib/node_modules
+    fi
     ;;
 
   ${commands[1]})
@@ -23,9 +33,25 @@ case $1 in
     ;;
 
   ${commands[2]})
-    echo "CMD: sw_vers"
+    echo "CMD: sw_vers (mac)"
     echo
     sw_vers
+    echo "CMD: cat /etc/os-release (linux)"
+    echo
+    cat /etc/os-release
+    ;;
+
+  ${commands[3]})
+    echo "CMD: curl ipinfo.io"
+    echo "Public IP info"
+    curl ipinfo.io
+    echo "CMD: nmcli --ask"
+    echo "Getting private IP in DNS configurations -> servers for linux"
+    nmcli --ask
+    echo "ipconfig getifaddr en0 // Private IP over wireless network (mac)"
+    ipconfig getifaddr en0
+    echo "ipconfig getifaddr en1 // Private IP adress to ethernet"
+    ipconfig getifaddr en1
     ;;
 
   *)
