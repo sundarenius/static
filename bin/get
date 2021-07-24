@@ -5,6 +5,7 @@ declare -a commands=(
   bp
   os
   ip
+  hw
 )
 
 case $1 in
@@ -52,6 +53,11 @@ case $1 in
     ipconfig getifaddr en0
     echo "ipconfig getifaddr en1 // Private IP adress to ethernet"
     ipconfig getifaddr en1
+    ;;
+  ${commands[4]})
+    echo "Harware info, hw = hardware"
+    echo "CMD: lscpu (linux)"
+    lscpu
     ;;
 
   *)
