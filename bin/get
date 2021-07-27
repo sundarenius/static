@@ -34,30 +34,46 @@ case $1 in
     ;;
 
   ${commands[2]})
-    echo "CMD: sw_vers (mac)"
-    echo
-    sw_vers
-    echo "CMD: cat /etc/os-release (linux)"
-    echo
-    cat /etc/os-release
+    if [[ "$OSTYPE" == "linux-gnu"* ]];
+      then
+        echo "CMD: cat /etc/os-release (linux)"
+        echo
+        cat /etc/os-release
+    elif [[ "$OSTYPE" == "darwin"* ]];
+      then
+        echo "CMD: sw_vers (mac)"
+        echo
+        sw_vers
+    fi
     ;;
 
   ${commands[3]})
     echo "CMD: curl ipinfo.io"
     echo "Public IP info"
     curl ipinfo.io
-    echo "CMD: nmcli --ask"
-    echo "Getting private IP in DNS configurations -> servers for linux"
-    nmcli --ask
-    echo "ipconfig getifaddr en0 // Private IP over wireless network (mac)"
-    ipconfig getifaddr en0
-    echo "ipconfig getifaddr en1 // Private IP adress to ethernet"
-    ipconfig getifaddr en1
+    if [[ "$OSTYPE" == "linux-gnu"* ]];
+      then
+      echo "CMD: nmcli --ask"
+      echo "Getting private IP in DNS configurations -> servers for linux"
+      nmcli --ask
+    elif [[ "$OSTYPE" == "darwin"* ]];
+      then
+        echo "ipconfig getifaddr en0 // Private IP over wireless network (mac)"
+        ipconfig getifaddr en0
+        echo "ipconfig getifaddr en1 // Private IP adress to ethernet"
+        ipconfig getifaddr en1
+    fi
     ;;
   ${commands[4]})
-    echo "Harware info, hw = hardware"
-    echo "CMD: lscpu (linux)"
-    lscpu
+    if [[ "$OSTYPE" == "linux-gnu"* ]];
+      then
+        echo "Harware info, hw = hardware"
+        echo "CMD: lscpu (linux)"
+        lscpu
+    elif [[ "$OSTYPE" == "darwin"* ]];
+      then
+        echo "mac os"
+    fi
     ;;
 
   *)
