@@ -110,10 +110,10 @@ const showData = (data, type = 'Sist bearbetade') => {
   const insertData = (data) => {
     innerContainer.innerHTML = innerContainer.innerHTML + `
 <div style="padding:15px">
-  <p>Adress: ${data.address}</p>
-  <p>Senast inlämnat datum: <span style="font-weight:bold">${data.dateFixed.substring(0, 16)}</span></p>
-  <p>Anteckningar: ${data.notes}</p>
-  <p>Namn: ${data.terId}</p>
+  <p><i>Adress</i>: ${data.address}</p>
+  <p><i>Senast inlämnat datum</i>: <span style="font-weight:bold">${data.dateFixed.substring(0, 16)}</span></p>
+  <p><i>Anteckningar</i>: ${data.notes}</p>
+  <p><i>Namn</i>: ${data.terId}</p>
   <a target="_blank" href="${`${window.location.origin}/sv/View/Territory/${data.id}`}">Öppna distrikt</a>
 </div>
 <hr />
