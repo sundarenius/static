@@ -1,3 +1,18 @@
+// Denna är hosted på github,
+// Kan triggas i browser i target origin genom att köra följande i consolen
+/*
+// Använd äldre js för bättre kompatibilitet med olika browsers
+fetch('https://sundarenius.github.io/static/oldest-processed/oldest-processed.js')
+.then(function(response) { if (!response.ok) { return false; } return response.blob(); })
+.then(function(myBlob) {
+  var objectURL = URL.createObjectURL(myBlob);
+  var sc = document.createElement("script");
+  sc.setAttribute("src", objectURL);
+  sc.setAttribute("type", "text/javascript");
+  document.head.appendChild(sc);
+})
+*/
+
 const fetchUrl = async (url, method, payload = {}, extraHeaders, shouldReturn = true) => {
   const res = await fetch(url, {
     method,
