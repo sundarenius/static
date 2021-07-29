@@ -2,7 +2,7 @@
 // Kan triggas i browser i target origin genom att köra följande i consolen
 /*
 // Använd äldre js för bättre kompatibilitet med olika browsers
-fetch('https://sundarenius.github.io/static/oldest-processed/oldest-processed.js')
+fetch(`https://sundarenius.github.io/static/oldest-processed/oldest-processed.js?id=${Math.random()}`)
 .then(function(response) { if (!response.ok) { return false; } return response.blob(); })
 .then(function(myBlob) {
   var objectURL = URL.createObjectURL(myBlob);
@@ -99,7 +99,7 @@ const showData = (data, type = 'Sist bearbetade') => {
   innerContainer.style.position = 'absolute'
   innerContainer.style.top = '10%'
   innerContainer.style.left = '20%'
-  innerContainer.style.background = '#cccccc'
+  innerContainer.style.background = '#ffffff'
   innerContainer.style.borderRadius = '10px'
   innerContainer.style.boxShadow = '0px 1px 10px #ddd'
   innerContainer.style.padding = '15px'
