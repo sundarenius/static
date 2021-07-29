@@ -150,13 +150,13 @@ const addButtons = () => {
   const latestRadhus = createBtn()
   const register = createBtn()
   register.innerHTML = 'Öppna register'
-  latest.innerHTML = 'Sist (alla)'
-  latestVillor.innerHTML = 'Sist villor'
-  latestRadhus.innerHTML = 'Sist radhus'
+  latest.innerHTML = 'Äldst (alla)'
+  latestVillor.innerHTML = 'Äldst villor'
+  latestRadhus.innerHTML = 'Äldst radhus'
   register.onclick = () => window.open('https://territoryhelper.com/sv/Assignments')
-  latest.onclick = () => showDataMiddleware(window._oldest_returned_, 'Sist bearbetade')
-  latestVillor.onclick = () => showDataMiddleware(window.oldest_villor, 'Sist bearbetade villor')
-  latestRadhus.onclick = () => showDataMiddleware(window.oldest_radhus, 'Sist bearbetade radhus/villor')
+  latest.onclick = () => showDataMiddleware(window._oldest_returned_, 'Äldst bearbetade')
+  latestVillor.onclick = () => showDataMiddleware(window.oldest_villor, 'Äldst bearbetade villor')
+  latestRadhus.onclick = () => showDataMiddleware(window.oldest_radhus, 'Äldst bearbetade radhus/villor')
   container.appendChild(register)
   container.appendChild(latest)
   container.appendChild(latestVillor)
