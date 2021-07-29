@@ -90,6 +90,7 @@ const showData = (data, type = 'Sist bearbetade') => {
   innerContainer.style.padding = '15px'
   innerContainer.style.overflow = 'scroll'
   innerContainer.innerHTML = `<h2>${type} - (${data.length} st.)</h2>`
+  console.log(`${type} raw data:`)
   console.log(data)
   const insertData = (data) => {
     innerContainer.innerHTML = innerContainer.innerHTML + `
