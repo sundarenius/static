@@ -53,9 +53,8 @@ case $1 in
     curl ipinfo.io
     if [[ "$OSTYPE" == "linux-gnu"* ]];
       then
-      echo "CMD: nmcli --ask"
-      echo "Getting private IP in DNS configurations -> servers for linux"
-      nmcli --ask
+      echo "Private IP: 'hostname -I'"
+      hostname -I
     elif [[ "$OSTYPE" == "darwin"* ]];
       then
         echo "ipconfig getifaddr en0 // Private IP over wireless network (mac)"
