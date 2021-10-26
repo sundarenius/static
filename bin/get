@@ -31,7 +31,6 @@ case $1 in
     echo "bp = brew packages"
     echo
     brew list
-    ;;
     echo "brew list --casks"
     echo "bp = brew packages installed with --cask option"
     echo
