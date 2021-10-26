@@ -27,10 +27,15 @@ case $1 in
     ;;
 
   ${commands[1]})
-    echo "/usr/local/Cellar"
+    echo "brew list"
     echo "bp = brew packages"
     echo
-    ls /usr/local/Cellar
+    brew list
+    ;;
+    echo "brew list --casks"
+    echo "bp = brew packages installed with --cask option"
+    echo
+    brew list --casks
     ;;
 
   ${commands[2]})
