@@ -39,6 +39,10 @@ const getTerritories = async () => {
   return territories
 }
 
+const includes = (data, compareText) => {
+  return data && data.includes(compareText);
+}
+
 const oldestReturned = (territories) => territories.map(val => {
   const regExParentheses = /\(([^)]+)\)/;
   if (val.TerritoryAssignments && val.TerritoryAssignments[0] && val.TerritoryAssignments[0].DateReturned) {
@@ -57,7 +61,7 @@ const oldestReturned = (territories) => territories.map(val => {
 })
   .filter(val => val)
   .sort((a, b) => a.returnDate - b.returnDate)
-  .filter(val => !val.terId.includes('Landet') && !val.terId.includes('Snättringe'))
+  .filter(val => !includes(val.terId, 'Landet') && !includes(val.terId, 'Snättringe'))
 
 const loadingUi = (remove = false) => {
   console.log('loadingUi triggered')
@@ -172,9 +176,9 @@ const start = async () => {
   const ter = oldestReturned(territories)
   window._oldest_returned_ = ter
   window.oldest_villor = window._oldest_returned_.filter(val =>
-    val.notes.includes('Villor') || val.notes.includes('villor'))
+    includes(val.notes, 'Villor') || includes(val.notes, 'villor'))
   window.oldest_radhus = window._oldest_returned_.filter(val =>
-    val.notes.includes('Radhus') || val.notes.includes('radhus'))
+    includes(val.notes, 'Radhus') || includes(val.notes, 'radhus'))
   console.log(ter[0])
   addButtons()
 }
